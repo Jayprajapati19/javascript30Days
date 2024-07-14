@@ -1,4 +1,4 @@
-// Variables and datatypes 
+// DAy1 --> Variables and datatypes 
 
 // task 1 -> Variable declaration using var
 var num1 = 19
@@ -11,8 +11,6 @@ console.log(name);
 // task 3 -> Constant declaration
 const isLoggedIn = true
 console.log(isLoggedIn);
-
-
 
 
 // task 4 -> Data types
