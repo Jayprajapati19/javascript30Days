@@ -55,10 +55,41 @@ console.log("The Largest Number is " + large);
 
 
 
-// task 4 -> write a program that uses a switch case to determine the day of htee week based on a number (1-7) and log the day name
+// task 4 -> write a program that uses a switch case to determine the day of the week based on a number (1-7) and log the day name
 
+let dayNumber = 3;
 
+let dayName;
 
+switch (dayNumber) {
+   case 1:
+      dayName = "Monday"
+      break;
+   case 2:
+      dayName = "Tuesday"
+      break;
+   case 3:
+      dayName = "Wednesday"
+      break;
+   case 4:
+      dayName = "Thursday"
+      break;
+   case 5:
+      dayName = "Friday"
+      break;
+   case 6:
+      dayName = "Saturday"
+      break;
+   case 7:
+      dayName = "Sunday"
+      break;
+
+   default:
+      dayName = "Invalid Day Number"
+      break;
+}
+
+console.log("The Day is: " + dayName);
 
 
 // task 5 -> write a program that uses a switch case to assign a grade ('A', 'B', 'C', 'D', 'E', 'F') based on score and log the grade
