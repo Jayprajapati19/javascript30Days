@@ -94,14 +94,67 @@ console.log("The Day is: " + dayName);
 
 // task 5 -> write a program that uses a switch case to assign a grade ('A', 'B', 'C', 'D', 'E', 'F') based on score and log the grade
 
+let score = 80;
+
+let grade;
+
+switch (true) {
+   case score >= 90:
+      grade = 'A'
+      break;
+   case score >= 80:
+      grade = 'B'
+      break;
+   case score >= 70:
+      grade = 'C'
+      break;
+   case score >= 60:
+      grade = 'D'
+      break;
+   case score >= 50:
+      grade = 'E'
+      break;
+
+   default:
+      grade = 'F'
+      break;
+}
+
+console.log("The grade for score " + score + " is:  " + grade);
 
 
 // task 6 -> write a program that uses the ternary operator to check if a number is even or odd and log the result
+
+let number = 20;
+
+let result = (number % 2 === 0) ? "even" : "odd";
+
+console.log("The Number " + number + " is " + result + ".");
+
 
 
 
 // task 7 -> write a program to check if a year is a leap year using multiple conditions (divisibel by 4, but not 100 unless also divisible by 400) and log the result
 
+let year = 2023
+
+let isLeapYear = false;
+
+if (year % 4 === 0) {
+   if (year % 100 === 0) {
+      if (year % 400 === 0) {
+         isLeapYear``
+      }
+   } else {
+      isLeapYear = true;
+   }
+}
+
+if (isLeapYear) {
+   console.log(year + " is a leap year");
+} else {
+   console.log(year + " is not a leap year");
+}
 
 
 
