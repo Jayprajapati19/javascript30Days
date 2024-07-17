@@ -47,16 +47,16 @@ do {
 
 // task 6 -> calculate the factorial of a number using a do..whilw loop
 
-let number = 3
-let factorial = 1;
-let i = 1
+// let number = 3
+// let factorial = 1;
+// let i = 1
 
-do {
-   factorial *= i;
-   i++
-} while (i <= number);
+// do {
+//    factorial *= i;
+//    i++
+// } while (i <= number);
 
-console.log(`The factorial of ${number} is: ${factorial}`);
+// console.log(`The factorial of ${number} is: ${factorial}`);
 
 /*
 Activity 4 -> Nested loops
