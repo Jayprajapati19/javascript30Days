@@ -59,6 +59,14 @@ console.log(newArr);
 
 // task 6: use the rest operator in a function to accept an arbitrary number of arguments, sum them , and return the result
 
+function sumAll(...nums) {
+   let sum = nums.reduce((total, num) => total + num, 0);
+   return sum;
+}
+
+console.log(sumAll(1, 2, 3));
+console.log(sumAll(2, 3, 6));
+
 // activity 4:  default parameters
 
 // task 7: write a function that takes two parameter and returns their product with the second parameter having a default value of 1. log the result of calling this function with and without the second parameter
