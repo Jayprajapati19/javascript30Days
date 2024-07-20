@@ -51,6 +51,12 @@ console.log(`The author of the book is : ${author}`);
 
 // task 5: use the spread operator to create a new array that includes all elements of an existing array plus additional element's and log the new array to the console.
 
+let Arr = [1, 2, 3, 4, 5];
+
+let newArr = [...Arr, 6, 7, 8, 9, 10]
+
+console.log(newArr);
+
 // task 6: use the rest operator in a function to accept an arbitrary number of arguments, sum them , and return the result
 
 // activity 4:  default parameters
