@@ -71,12 +71,50 @@ console.log(sumAll(2, 3, 6));
 
 // task 7: write a function that takes two parameter and returns their product with the second parameter having a default value of 1. log the result of calling this function with and without the second parameter
 
+function multiple(a, b = 1) {
+   return a * b;
+}
+
+let result1 = multiple(3, 9);
+
+console.log(`Result with both parameter ${result1}`);
+
+let result2 = multiple(5)
+console.log(`Result with only the first parameter: ${result2} `);
+
 // activity 5:  enhanced object literals
 
 // task 8: use enhanced object literals to create an object with methods and properties, and log the object to the console.
 
+let person = {
+   name: "Jay",
+   age: 19,
+   greet() {
+      console.log(`Hii.., I'm ${this.name} and I am ${this.age} years old.`);
+   },
+   celebrateBirthday() {
+      this.age += 1;
+      console.log(`Happy Birthday! You are now ${this.age} years old.`);
+   }
+}
+
+console.log(person);
+
+person.greet()
+person.celebrateBirthday()
+
 // task 9: create an object with computed property names based on variables and log the object to the console.
 
 
+let propname1 = "firsatname";
+let propname2 = "lastname";
+
+let person1 = {
+   [propname1]: "Jayy",
+   [propname2]: "Prajapati",
+   age: 25
+}
+
+console.log(person1);
 
 
