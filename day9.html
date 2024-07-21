@@ -5,38 +5,83 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>DOM Manipulation</title>
+   <style>
+      .highlight {
+         background-color: yellow;
+      }
+
+      .border-change {
+         border: 2px solid red;
+      }
+   </style>
 </head>
 
 <body>
-   <ul class="myClass">
-      <li id="myId"></li>
+   <h1 id="heading">Original Heading</h1>
+   <div class="content">This is a content div.</div>
+   <ul id="list">
+      <li>Item 1</li>
+      <li>Item 2</li>
    </ul>
+   <img id="image"
+      src="https://images.pexels.com/photos/25949536/pexels-photo-25949536/free-photo-of-a-white-plate-with-a-flower-and-bread-on-it.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load">
+   <button id="clickButton">Click Me</button>
+   <p id="paragraph">This is a paragraph.</p>
+   <div id="mouseoverDiv">Hover over me</div>
 
+   <script>
+      // task 1. Select a HTML element by its id and change its text content
+      document.getElementById('heading').textContent = 'Updated Heading';
 
+      // task 2. Select a HTML element by its class and change its background color
+      document.querySelector('.content').style.backgroundColor = 'lightblue';
+
+      // task  3. Create a new div element with some text content and append it to the body
+      const newDiv = document.createElement('div');
+      newDiv.textContent = 'This is a new div';
+      document.body.appendChild(newDiv);
+
+      // task  4. Create a new li element and add it to an existing ul list
+      const newLi = document.createElement('li');
+      newLi.textContent = 'Item 3';
+      document.getElementById('list').appendChild(newLi);
+
+      // task  5. Select an html element and remove it from the DOM
+      const imageElement = document.getElementById('image');
+      imageElement.remove();
+
+      // task  6. Remove the last child of a specific html element
+      const list = document.getElementById('list');
+      list.removeChild(list.lastElementChild);
+
+      // task 7. Select an HTML element and change one of its attributes (src of an img tag)
+      const imgElement = document.createElement('img');
+      imgElement.src = 'https://images.pexels.com/photos/25949536/pexels-photo-25949536/free-photo-of-a-white-plate-with-a-flower-and-bread-on-it.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load';
+      imgElement.alt = 'New Placeholder Image';
+      document.body.appendChild(imgElement);
+
+      // task 8. Add and remove a CSS class to/from an HTML element
+      const contentDiv = document.querySelector('.content');
+      contentDiv.classList.add('highlight');
+      setTimeout(() => {
+         contentDiv.classList.remove('highlight');
+      }, 2000);
+
+      // task 9. Add a click event listener to a button that changes the text content of a paragraph
+      const button = document.getElementById('clickButton');
+      button.addEventListener('click', () => {
+         document.getElementById('paragraph').textContent = 'Button was clicked!';
+      });
+
+      // task 10. Add a mouseover event listener to an element that changes its border color
+      const mouseoverDiv = document.getElementById('mouseoverDiv');
+      mouseoverDiv.addEventListener('mouseover', () => {
+         mouseoverDiv.classList.add('border-change');
+      });
+      mouseoverDiv.addEventListener('mouseout', () => {
+         mouseoverDiv.classList.remove('border-change');
+      });
+   </script>
 </body>
-
-<script>
-   // Activity 1: Selecting and Manipulating Elements
-   // task 1:
-   document.getElementById('myId').textContent = "new Text Content";
-
-   // task 2:
-
-   // const changeColor = document.getElementsByClassName('myClass')
-   // changeColor[0].style.backgroundColor = "red";
-
-   // Activity 2: Creating and Appending Elements
-   // task 3:
-
-   const div = document.createElement('div');
-   div.innerText = "This is Div Text";
-   document.body.appendChild(div);
-
-   task 4:
-
-
-
-
-</script>
 
 </html>
