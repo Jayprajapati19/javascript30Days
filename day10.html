@@ -5,12 +5,30 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Event Handling </title>
+   <style>
+      #myImage{
+            width: 200px;
+            height: auto;
+      }
+   </style>
 </head>
+
+
 
 <body style="background-color: #212131; color:white">
    <input type="text" id="msg">
    <button onclick="Message()">Submit</button>
-   <p class="msg">Message</p>
+   <p class="msg">Message: </p>
+
+
+   <!-- <button onclick="show()"> Show Image</button> -->
+
+   <div>
+      <button id="toggle">Show image</button>
+
+      <img id="myImage" src="https://images.pexels.com/photos/65438/pexels-photo-65438.jpeg?auto=compress&cs=tinysrgb&w=400" alt="image building">
+   </div>
+
 
 
 </body>
@@ -27,6 +45,52 @@
 
    // task 2: add a double-click event listener to an image that its visibility 
 
+   // function show() {
+   //    let x = document.getElementById("building");
+   //    if(x.style.visibility === "hidden"){
+   //       x.style.visibility = "visible";
+   //    }else{
+   //       x.style.visibility = "hidden";
+   //    }
+   // }
+
+   document.addEventListener("DOMContentLoaded",()=>{
+      const myImage = document.getElementById("myImage");
+      const toggle = document.getElementById("toggle");
+
+      toggle.addEventListener("dblclick",()=>{
+         if (myImage.style.visibility ==="hidden") {
+            myImage.style.visibility = "visible";
+         }else{
+            myImage.style.visibility = "hidden";
+         }
+      })
+   })
+
+
+
+   // activity 2: mouse events
+
+   //   task 3: add a mouse event listener to an element that changes its background color
+   
+   //   task 4: add a mouseover event listener to an element that reset its background color
+
+   // activity 3: keyboard events
+
+   // task 5: add a keydown event listener to an input field that logs the key pressed to the console.
+
+   // task 6: add a keyup event listener to an input display the current value im a paragraph.
+
+   // activity 4: form events
+   // task 7: add a submit event listener to a form that prevents the default form submission and logs the form data to the console.
+
+   // task 8: add a change event listener to a select dropdown that display the selected value in paragraph.
+
+   // activity 5:  events delegation
+
+   // task 9: add a  click event listener to a list that logs the text content of the clicked list item using event delegation
+
+   // task 10: add an event listener to a parent element that  listens for evnets from dynamically added child elements
 </script>
 
 </html>
