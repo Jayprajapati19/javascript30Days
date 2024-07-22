@@ -6,9 +6,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Event Handling </title>
    <style>
-      #myImage{
-            width: 200px;
-            height: auto;
+      #myImage {
+         width: 200px;
+         height: auto;
+      }
+
+      #colorbox {
+         width: 200px;
+         height: 200px;
       }
    </style>
 </head>
@@ -26,9 +31,46 @@
    <div>
       <button id="toggle">Show image</button>
 
-      <img id="myImage" src="https://images.pexels.com/photos/65438/pexels-photo-65438.jpeg?auto=compress&cs=tinysrgb&w=400" alt="image building">
+      <img id="myImage"
+         src="https://images.pexels.com/photos/65438/pexels-photo-65438.jpeg?auto=compress&cs=tinysrgb&w=400"
+         alt="image building">
    </div>
 
+   <div id="colorbox">Hover me</div>
+
+
+   <input type="text" id="textInput" placeholder="Type Something">
+   <p id="displayText">Current Vlaue: </p>
+
+
+   <form id="myForm">
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <button type="submit">Submit</button>
+   </form>
+
+
+
+   <label for="dropdown">Choose Option: </label>
+   <select id="dropdown">
+      <option value="Option 1">Option 1</option>
+      <option value="Option 2">Option 2</option>
+   </select>
+   <p id="displayText">Selected Value: </p>
+
+
+   <ul id="myList">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+   </ul>
+
+
+   <button id="addItemBtn">Add Item</button>
+   <ul id="itemLi">
+      <!-- added dynamically -->
+   </ul>
 
 
 </body>
@@ -54,14 +96,14 @@
    //    }
    // }
 
-   document.addEventListener("DOMContentLoaded",()=>{
+   document.addEventListener("DOMContentLoaded", () => {
       const myImage = document.getElementById("myImage");
       const toggle = document.getElementById("toggle");
 
-      toggle.addEventListener("dblclick",()=>{
-         if (myImage.style.visibility ==="hidden") {
+      toggle.addEventListener("dblclick", () => {
+         if (myImage.style.visibility === "hidden") {
             myImage.style.visibility = "visible";
-         }else{
+         } else {
             myImage.style.visibility = "hidden";
          }
       })
@@ -72,25 +114,116 @@
    // activity 2: mouse events
 
    //   task 3: add a mouse event listener to an element that changes its background color
-   
    //   task 4: add a mouseover event listener to an element that reset its background color
+   document.addEventListener("DOMContentLoaded", function () {
+
+      let colorbox = document.getElementById("colorbox");
+
+      colorbox.addEventListener("mouseover", function () {
+         colorbox.style.backgroundColor = "yellow";
+      })
+
+      colorbox.addEventListener("mouseout", function () {
+         colorbox.style.backgroundColor = "lightblue";
+      })
+   })
+
+
 
    // activity 3: keyboard events
 
    // task 5: add a keydown event listener to an input field that logs the key pressed to the console.
 
-   // task 6: add a keyup event listener to an input display the current value im a paragraph.
+   document.addEventListener("DOMContentLoaded", function () {
+      let textInput = document.getElementById("textInput");
+
+      textInput.addEventListener("keydown", function (e) {
+         console.log("Key pressed: " + e.key);
+      })
+   })
+
+
+
+   // task 6: add a keyup event listener to an input display the current value in paragraph.
+
+   document.addEventListener("DOMContentLoaded", function () {
+      let textInput = document.getElementById("textInput");
+      let displayText = document.getElementById("displayText");
+
+      textInput.addEventListener("keyup", function () {
+         displayText.textContent = "Current Value: " + this.value;
+      })
+   })
 
    // activity 4: form events
    // task 7: add a submit event listener to a form that prevents the default form submission and logs the form data to the console.
 
+   document.addEventListener("submit", function () {
+      let myForm = document.getElementById("myForm");
+
+      myForm.addEventListener("submit", function (e) {
+         e.preventDefault()
+
+         let formData = new formData(myForm)
+
+         for (let pair of formData.entries()) {
+            console.log(pair[0] + ": " + pair[1]);
+         }
+      })
+   })
+
+
    // task 8: add a change event listener to a select dropdown that display the selected value in paragraph.
+
+   document.addEventListener("DOMContentLoaded", function () {
+      let dropdown = document.getElementById("dropdown");
+      let displayText = document.getElementById("displayText");
+
+      dropdown.addEventListener("change", function () {
+         displayText.textContent = "Selected Value: " + dropdown.value
+      })
+   })
+
 
    // activity 5:  events delegation
 
    // task 9: add a  click event listener to a list that logs the text content of the clicked list item using event delegation
 
+   document.addEventListener("DOMContentLoaded", function (e) {
+      let myList = document.getElementById("myList");
+
+      myList.addEventListener("click", function (e) {
+         if (event.target.tagName === "LI") {
+            console.log("Clicked item:  " + event.target.textContent);
+         }
+      })
+   })
+
    // task 10: add an event listener to a parent element that  listens for evnets from dynamically added child elements
+
+   document.addEventListener("DOMContentLoaded", function () {
+
+      let itemLi = document.getElementById("itemLi")
+      let addItemBtn = document.getElementById("addItemBtn")
+
+      function handleItemClick(e) {
+         if (e.target.tagName === "LI") {
+            console.log("Clicked item: " + e.target.textContent);
+         }
+      }
+
+      itemLi.addEventListener("click", handleItemClick)
+
+      addItemBtn.addEventListener("click", function () {
+         let newItem = document.createElement("li");
+
+         newItem.textContent = "New Item " + (itemLi.children.length + 1)
+
+         itemLi.appendChild(newItem)
+      })
+
+   })
+
 </script>
 
 </html>
