@@ -4,10 +4,8 @@
 
 // task 1: create a prommise that resolve with a messsage after 2-second timeout and log the message to the console.
 
-
-
-
 /*
+
 let myPromise = new Promise((resolve, reject) => {
    setTimeout(() => {
       resolve("Hello! This is a messahe after 2 seccons.")
@@ -17,11 +15,8 @@ let myPromise = new Promise((resolve, reject) => {
 myPromise.then((message) => {
    console.log(message);
 })
-    */
 
-
-
-
+*/
 
 
 // task 2: create a promise that rejects with an error message after a 2-second timeout and handle the error using .catch()
@@ -163,16 +158,5 @@ const p3 = new Promise((resolve) => {
 Promise.race([p1, p2, p3]).then((value) => {
    console.log("Task 9 completed")
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
