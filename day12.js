@@ -78,17 +78,111 @@ try {
 
 // task 5: write a function that validates user input (e.g.. checking if a string in not empty) and throws a custom error if the validation fails. handle the custom error using a try-catch block.
 
+class validationError extends Error {
+   constructor(message) {
+      super(message);
+      this.name = "ValidationError";
+   }
+}
+
+
+function validateInput(input) {
+   if (input.trim() === "") {
+      throw new validationError("Input cannot be empty")
+   }
+   return "Input is valid!"
+}
+
+try {
+   const userInput = "";
+   const result1 = validateInput(userInput)
+   console.log(result1);
+} catch (error) {
+   if (error instanceof validationError) {
+      console.log(error.name + ": " + error.message);
+   } else {
+      console.log("An unexpected error occured: " + error.message);
+   }
+
+}
+
 // Activity 4: Error handling in Promises
 
 // task 6: create a promise that randomly resolves or rejects .use .catch() to handle the rejection and log an appropriate message to the console.
 
+function randomPromise() {
+   return new Promise((resolve, reject) => {
+      const success = Math.random() > 0.5;
+
+      if (success) {
+         resolve("Promise resolved successfully")
+      } else {
+         reject("Promise rejected!..")
+      }
+   });
+}
+
+randomPromise()
+   .then(result => {
+      console.log(result);
+   })
+   .catch(error => {
+      console.log("ERROR: " + error);
+   });
+
 // task 7: use try-catch within an async function to handle errors from a promise that randomly resolves or rejects, and log the erorr message.
+
+async function handlePromise() {
+   try {
+      const result = await randomPromise();
+      console.log(result);
+   } catch (error) {
+      console.log("ERROR:", error);
+   }
+}
+
+handlePromise();
 
 // Activity 5: graceful error handling in fetch
 
 // task 8: use the fetch API to request data from an invalid URL and handle the error using .catch(). log an appropriate error message to the console.
 
+// function fetchData() {
+//    fetch('https://invalid-url.example.com')
+//       .then(response => {
+//          if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//          }
+//          return response.json();
+//       })
+//       .then(data => {
+//          console.log(data);
+//       })
+//       .catch(error => {
+//          console.log('Error:', error.message);
+//       });
+// }
+
+// fetchData();
+
+
 // task 9: use the fetch API to request data from an invalid URL within an async function and handle the error using try-catch. log an appropriate error message.
+
+// Async function to fetch data from an invalid URL
+async function fetchData() {
+   try {
+      const response = await fetch('https://invalid-url.example.com');
+      if (!response.ok) {
+         throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+   } catch (error) {
+      console.log('Error:', error.message);
+   }
+}
+
+fetchData();
 
 
 
