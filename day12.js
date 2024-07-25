@@ -20,7 +20,7 @@ try {
 
 function divideNumbers(numerator, denominator) {
    if (denominator === 0) {
-      throw new Error("Cannot divide by zero!")
+      throw new Error(" Sucess this statement, Gudii ..")
 
    }
    return numerator / denominator;
