@@ -324,7 +324,7 @@ console.log(`Current Balance: ₹${myAccount.getBalance()}`);
 myAccount.withdraw(200); // Withdraw ₹200
 console.log(`Current Balance: ₹${myAccount.getBalance()}`);
 
-myAccount.deposit(-100);
+myAccount.deposit(1100);
 myAccount.withdraw(2000);
 
 console.log(`Current Balance: ₹${myAccount.getBalance()}`);
