@@ -154,6 +154,8 @@ console.log("Index of 6 in [1, 2, 3, 6, 9]:", binarySearch([1, 2, 3, 6, 9], 6));
 
 // task 9: write a recursive function to perform an in-order traversal of a binary tree. log the nodes as they are visited.
 
+
+
 // task 10: write a recursive function to calculate the depth of a binary tree. log the result for a few test cases.
 
 
