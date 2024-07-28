@@ -4,16 +4,16 @@
 
 // task 1: write a function that returns another function, where the inner function accesses a variable from the outer function's scope. call the inner function and log the result.
 
-// function outerFunction() {
-//    let outerVariable = 'Hello from the outer function!';
-//    function innerFunction() {
-//       return outerVariable;
-//    }
-//    return innerFunction;
-// }
+function outerFunction() {
+   let outerVariable = 'Hello from the outer function!';
+   function innerFunction() {
+      return outerVariable;
+   }
+   return innerFunction;
+}
 
-// const myInnerFunction = outerFunction();
-// console.log(myInnerFunction());
+const myInnerFunction = outerFunction();
+console.log(myInnerFunction());
 
 
 // task 2: create a closures that maitains a pricate counter. implement functions to increment and get the current of the counter.
