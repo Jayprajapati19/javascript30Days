@@ -154,9 +154,84 @@ console.log("Index of 6 in [1, 2, 3, 6, 9]:", binarySearch([1, 2, 3, 6, 9], 6));
 
 // task 9: write a recursive function to perform an in-order traversal of a binary tree. log the nodes as they are visited.
 
+// function binarySearch(arr, target, low = 0, high = arr.length - 1) {
+//    if (low > high) {
+//       return -1; // Target not found
+//    }
+
+//    const mid = Math.floor((low + high) / 2);
+
+//    if (arr[mid] === target) {
+//       return mid; // Target found
+//    }
+
+//    if (arr[mid] > target) {
+//       return binarySearch(arr, target, low, mid - 1); // Search in the left half
+//    } else {
+//       return binarySearch(arr, target, mid + 1, high); // Search in the right half
+//    }
+// }
+
+// console.log("Index of 3 in [1, 2, 3, 4, 5]:", binarySearch([1, 2, 3, 4, 5], 3)); // Output: 2
+// console.log("Index of 10 in [1, 2, 5, 7, 10, 15]:", binarySearch([1, 2, 5, 7, 10, 15], 10)); // Output: 4
+// console.log("Index of 7 in [1, 3, 5, 7, 9]:", binarySearch([1, 3, 5, 7, 9], 7)); // Output: 3
+// console.log("Index of 1 in [2, 4, 6, 8]:", binarySearch([2, 4, 6, 8], 1)); // Output: -1
+// console.log("Index of 6 in [1, 2, 3, 6, 9]:", binarySearch([1, 2, 3, 6, 9], 6)); // Output: 3
 
 
 // task 10: write a recursive function to calculate the depth of a binary tree. log the result for a few test cases.
+
+class TreeNode {
+   constructor(value = 0, left = null, right = null) {
+      this.value = value;
+      this.left = left;
+      this.right = right;
+   }
+}
+
+function getDepth(node) {
+   if (node === null) {
+      return 0;
+   }
+
+   const leftDepth = getDepth(node.left);
+   const rightDepth = getDepth(node.right);
+
+   return Math.max(leftDepth, rightDepth) + 1;
+}
+
+// Test cases
+
+const root1 = new TreeNode(1,
+   new TreeNode(2,
+      new TreeNode(4),
+      new TreeNode(5)
+   ),
+   new TreeNode(3)
+);
+console.log("Depth of tree 1:", getDepth(root1)); // Output: 3
+
+const root2 = new TreeNode(1,
+   new TreeNode(2,
+      new TreeNode(4,
+         new TreeNode(8),
+         new TreeNode(9)
+      ),
+      new TreeNode(5)
+   ),
+   new TreeNode(3,
+      null,
+      new TreeNode(6)
+   )
+);
+console.log("Depth of tree 2:", getDepth(root2)); // Output: 4
+
+const root3 = new TreeNode(1);
+console.log("Depth of tree 3:", getDepth(root3)); // Output: 1
+
+console.log("Depth of tree 4:", getDepth(null)); // Output: 0
+
+
 
 
 
